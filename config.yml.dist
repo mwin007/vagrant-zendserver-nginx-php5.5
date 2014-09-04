@@ -1,0 +1,16 @@
+##
+## Choose your name, IP and the memory of your virtual machine
+## 
+name: zendserver7-nginx.local
+ip: 10.11.12.14
+memory: 512
+
+##
+## Following lines can be used to mount a 'host' dir to the 'guest' system.
+## Multiple mounts are supported (just add another "myhome" array item).
+## Tested on Linux with VirtualBox 
+##
+shared_folder:
+#  "myhome":
+#    host: "/home/jan"
+#    guest: "/myhome"
