@@ -11,10 +11,12 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "ubuntu14.04-x64-zendserver7-nginx-php5.5"
-  config.vm.box_url = "https://s3-eu-west-1.amazonaws.com/zend-de-vagrant-boxes/ubuntu14.04-x64-zendserver7-nginx-php5.5.box"
+  config.vm.box = "ubuntu14.04-x64-zendserver8.0Beta-nginx-php5.5"
+  config.vm.box_url = "http://s3-eu-west-1.amazonaws.com/zend-de-vagrant-boxes/ubuntu14.04-x64-zendserver8.0Beta-nginx-php5.5.box"
   
-  config.vm.network "private_network", ip: localconfig['ip']
+  if ! localconfig['ip'].nil? 
+    config.vm.network "private_network", ip: localconfig['ip']
+  end
 
   config.vm.hostname = localconfig['name']
   if ! shared_folder.nil?
@@ -25,8 +27,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
   
   config.vm.provider :virtualbox do |v|
-    v.customize ["modifyvm", :id, "--memory", localconfig['memory']]
-    v.customize ["modifyvm", :id, "--name", localconfig['name']]
+    if ! localconfig['memory'].nil?
+      v.customize ["modifyvm", :id, "--memory", localconfig['memory']]
+    end
+    if ! localconfig['name'].nil?
+      v.customize ["modifyvm", :id, "--name", localconfig['name']]
+    end
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 end

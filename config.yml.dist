@@ -1,9 +1,10 @@
 ##
 ## Choose your name, IP and the memory of your virtual machine
+## If you don't chose any, the default settings from VirtualBox are used
 ## 
-name: zendserver7-nginx.local
-ip: 10.11.12.14
-memory: 512
+# name: zendserver-8.0Beta-nginx.local
+# ip: 10.11.12.13
+# memory: 512
 
 ##
 ## Following lines can be used to mount a 'host' dir to the 'guest' system.
