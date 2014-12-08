@@ -16,6 +16,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   
   if ! localconfig['ip'].nil? 
     config.vm.network "private_network", ip: localconfig['ip']
+  else
+    config.vm.network "private_network", type: "dhcp"
   end
 
   config.vm.hostname = localconfig['name']
