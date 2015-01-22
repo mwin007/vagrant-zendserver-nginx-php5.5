@@ -11,8 +11,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.box = "ubuntu14.04-x64-zendserver8.0Beta-nginx-php5.5"
-  config.vm.box_url = "http://s3-eu-west-1.amazonaws.com/zend-de-vagrant-boxes/ubuntu14.04-x64-zendserver8.0Beta-nginx-php5.5.box"
+  config.vm.box = "ubuntu14.04-x64-zendserver8.0-nginx-php5.5"
+  config.vm.box_url = "http://s3-eu-west-1.amazonaws.com/zend-de-vagrant-boxes/ubuntu14.04-x64-zendserver8.0-nginx-php5.5.box"
   
   if ! localconfig['ip'].nil? 
     config.vm.network "private_network", ip: localconfig['ip']
